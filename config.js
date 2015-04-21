@@ -1,19 +1,19 @@
 module.exports = {
   slack: {
-    host: 'my.slack.com',
-    incomingWebhookToken: 'your incoming webhook token',
-    outgoingWebhookToken: 'your outgoing webhook token',
+    host: process.env.SLACK_HOST,
+    incomingWebhookToken: process.env.INCOMING_SLACK_WEBHOOK_TOKEN,
+    outgoingWebhookToken: process.env.OUTGOING_SLACK_WEBHOOK_TOKEN,
     outgoingWebhookServer: {
-      port: 666,
-      domain: 'your.webhook.server.com',
+      port: process.env.OUTGOING_SLACK_PORT,
+      domain: process.env.PUBLIC_IP,
       hookPath: '/irc-echo'
     },
-    echoChannel: '#irc-echo',
-    botName: 'IRCBot',
+    echoChannel: process.env.SLACK_CHANNEL,
+    botName: process.env.SLACK_BOT_NAME,
   },
   irc: {
-    server: 'your.irc.net',
-    nick: 'slackbot',
-    channel: '#mychan'
+    server: 'chat.freenode.net',
+    nick: process.env.IRC_NICK,
+    channel: process.env.IRC_CHANNEL
   },
 };
